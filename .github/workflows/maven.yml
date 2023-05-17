@@ -29,5 +29,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: deploy tomcat
+      run: curl -v -u tomcat:tomcat -T /home/runner/work/sample-last/sample-last/target/sparkjava-hello-world-1.0.war 'http://ec2-3-21-76-148.us-east-2.compute.amazonaws.com:8080//manager/text/deploy?path=/spring_web'
 
  
